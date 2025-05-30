@@ -42,10 +42,6 @@ jobs:
           node-version: 20
       - name: Install GitSite
         run: npm install gitsite-cli -g
-      - name: Update site.yml for production
-        run: |
-          sed -i 's/root-path: ""/root-path: "\/dailyshells.com"/' source/site.yml
-          sed -i 's/base-url: ""/base-url: "https:\/\/ontheway0103.github.io\/dailyshells.com"/' source/site.yml
       - name: Build with GitSite
         run:
           # set output dir to '_site' for pages jobs:
