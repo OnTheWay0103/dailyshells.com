@@ -42,14 +42,26 @@ jobs:
           node-version: 20
       - name: Install GitSite
         run: npm install gitsite-cli -g
+      - name: Update site.yml for production
+        run: |
+          sed -i 's|# root-path: /dailyshells.com|root-path: /dailyshells.com|g' source/site.yml
+          sed -i 's|cdn-path: /static|cdn-path: /dailyshells.com/static|g' source/site.yml
       - name: Build with GitSite
-        run:
+        run: |
           # set output dir to '_site' for pages jobs:
           gitsite-cli build -o _site
+          # Debug: List all files in _site directory
+          echo "Listing all files in _site directory:"
+          find _site -type f
+          # Debug: Check static files
+          echo "Checking static files:"
+          ls -la _site/static/
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
       - name: Zip Generated Site
         run: cd _site && zip -r ../site.zip * && cd ..
       - name: Release Zip

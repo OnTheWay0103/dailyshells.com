@@ -6,9 +6,9 @@ site:
   language: zh-CN
   # set the /<rootPath> pathname under which your site is served
   # for GitHub pages deployment without a custom domain, it is often '/<projectName>'
-  # root-path: /dailyshells.com
+  # root-path: /dailyshells.com  # 生产环境使用
   # set cdn prefix: self hosted
-  cdn-path: /static
+  cdn-path: /static # 本地开发使用
   navigation:
     - title: 技术
       uri: /blogs/tech/index.html
@@ -74,4 +74,6 @@ build:
     - favicon.ico
     - robots.txt
     - ads.txt
+    - static/custom.js
+    - static/custom.css
 # you can add any items:
