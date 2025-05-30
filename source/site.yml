@@ -6,11 +6,11 @@ site:
   language: zh-CN
   # set the /<rootPath> pathname under which your site is served
   # for GitHub pages deployment without a custom domain, it is often '/<projectName>'
-  root-path: ""
+  root-path: "/local-dailyshells.com"
   # set cdn prefix: self hosted
-  cdn-path: /dailyshells.com/static
+  cdn-path: /local-dailyshells.com/static
   # set base url for production
-  base-url: https://ontheway0103.github.io/dailyshells.com
+  base-url: "http://localhost:3000/local-dailyshells.com"
   navigation:
     - title: 技术
       uri: /blogs/tech/index.html
